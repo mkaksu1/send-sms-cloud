@@ -31,7 +31,7 @@ Minimal Next.js + TypeScript app to send SMS via **Traccar SMS Gateway** (Cloudf
 ### 🔹 How It Works
 
 1. Install **Traccar SMS Gateway** on your Android phone.
-2. Run **Cloudflared** (Termux or PC) to expose the phone’s local SMS endpoint.
+2. Run **Cloudflared** (Termux) to expose the phone’s local SMS endpoint.
 3. Use the **API route** in your Next.js app to send messages via the tunnel.
 4. Optionally, integrate with OTP systems, reminder jobs, or internal notifications.
 
