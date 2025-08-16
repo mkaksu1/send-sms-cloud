@@ -12,27 +12,25 @@ Minimal Next.js + TypeScript app to send SMS via **Traccar SMS Gateway** (Cloudf
 - Easy integration for OTP or reminder systems
 
 
-
 ## 🔹 System Architecture
 
-
-
-Frontend Form (Next.js)
-│
-▼
-API Route (/api/send-sms)
-│
-▼
-SMS Sending Function (/lib/sendSms.ts)
-│
-▼
-Cloudflared Tunnel ([https://xxxx.trycloudflare.com](https://xxxx.trycloudflare.com))
-│
-▼
-Traccar SMS Gateway (Android Phone)
-│
-▼
+Frontend Form (Next.js)  
+│  
+▼  
+API Route (`/api/send-sms`)  
+│  
+▼  
+SMS Sending Function (`/lib/sendSms.ts`)  
+│  
+▼  
+Cloudflared Tunnel ([https://xxxx.trycloudflare.com](https://xxxx.trycloudflare.com))  
+│  
+▼  
+Traccar SMS Gateway (Android Phone)  
+│  
+▼  
 SMS Sent to Recipient
+
 
 
 
