@@ -179,7 +179,7 @@ export async function sendSms(to: string, message: string) {
 
 ---
 
-## 🔹 Cloudflared Tunnel Setup (Optional: Termux / Phone)
+## 🔹 Cloudflared Tunnel Setup ( Termux - Phone)
 
 ```bash
 pkg update && pkg upgrade -y
