@@ -208,6 +208,18 @@ This works in both PowerShell and CMD, as long as you handle escaping correctly.
 
 ---
 
+## 🔹 Quick Setup Steps
+* Prepare your Android phone: install **Traccar SMS Gateway** and **Termux**.
+* Install **Cloudflared** via Termux on your phone.
+* Retrieve the **local service endpoint** and **API token** from the SMS Gateway app.
+* Expose the local endpoint to the internet using **Cloudflared**.
+* Connect your Next.js app to the API using environment variables and verify with a **curl** test on your computer.
+* This app provides a **basic Next.js implementation** for sending SMS.
+
+
+
+---
+
 ## 🔹 License
 
 MIT © 2025
