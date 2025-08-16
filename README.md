@@ -1,9 +1,7 @@
-```markdown
 # Send SMS App
 
 Minimal Next.js + TypeScript app to send SMS via **Traccar SMS Gateway** (Cloudflared tunnel).
 
----
 
 ## 🔹 Features
 - Simple frontend form: phone number, message, send button
@@ -13,11 +11,11 @@ Minimal Next.js + TypeScript app to send SMS via **Traccar SMS Gateway** (Cloudf
 - Works via Cloudflared public tunnel to your phone
 - Easy integration for OTP or reminder systems
 
----
+
 
 ## 🔹 System Architecture
 
-```
+
 
 Frontend Form (Next.js)
 │
@@ -36,7 +34,7 @@ Traccar SMS Gateway (Android Phone)
 ▼
 SMS Sent to Recipient
 
-````
+
 
 - **Frontend:** Takes user input (phone number + message) and calls backend.
 - **API Route:** Receives request and forwards to SMS sending function.
@@ -44,7 +42,7 @@ SMS Sent to Recipient
 - **Cloudflared:** Exposes phone's local HTTP port to the internet.
 - **Traccar SMS Gateway:** Phone app sends real SMS via mobile network.
 
----
+
 
 ## 🔹 Prerequisites
 
@@ -54,7 +52,7 @@ SMS Sent to Recipient
 - SMS Gateway endpoint (local IP:port) and API key ready
 - Optional: Termux for running Cloudflared on phone
 
----
+
 
 ## 🔹 Setup
 
