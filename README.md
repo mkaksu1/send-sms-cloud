@@ -2,6 +2,40 @@
 
 Minimal Next.js + TypeScript app to send SMS via **Traccar SMS Gateway** (Cloudflared tunnel).
 
+---
+
+## 🔹 Usage Scenarios
+
+1. **OTP / One-Time Passwords**
+
+   * Quickly send verification codes to users without relying on external SMS providers.
+   * Ideal for small apps or testing environments.
+
+2. **Automated Reminders**
+
+   * Schedule reminders for appointments, deadlines, or notifications.
+   * Works with cron jobs or serverless schedulers.
+
+3. **Test & Development**
+
+   * Use your smartphone as a temporary SMS server for app development or QA.
+   * Avoids signing contracts or paying fees to commercial SMS services.
+
+4. **Small-Scale Notifications**
+
+   * Send alerts to team members, family, or personal projects.
+   * Can be integrated with any Next.js / Node.js backend via API.
+
+---
+
+### 🔹 How It Works
+
+1. Install **Traccar SMS Gateway** on your Android phone.
+2. Run **Cloudflared** (Termux or PC) to expose the phone’s local SMS endpoint.
+3. Use the **API route** in your Next.js app to send messages via the tunnel.
+4. Optionally, integrate with OTP systems, reminder jobs, or internal notifications.
+
+---
 
 ## 🔹 Features
 - Simple frontend form: phone number, message, send button
