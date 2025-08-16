@@ -31,6 +31,8 @@ Traccar SMS Gateway (Android Phone)
 ▼  
 SMS Sent to Recipient
 
+---
+
 
 
 
@@ -170,6 +172,19 @@ curl -X POST "https://xxxx.trycloudflare.com" \
 ```
 
 * Tests if SMS Gateway + Cloudflared pipeline works
+
+## Notes for Windows:
+
+Use backticks ` at the end of each line in PowerShell (not \) for line continuation.
+
+Double quotes " are for JSON strings, but inner quotes must be escaped as \".
+
+You can also put it all on one line if you prefer:
+
+curl -X POST "https://xxxx.trycloudflare.com" -H "Authorization: 03b5a583-ce58-40fa-9f33-8d055f7941d9" -H "Content-Type: application/json; charset=utf-8" -d "{\"to\":\"+905551112233\",\"message\":\"Merhaba, Türkçe karakterler: ü, ı, ğ\"}"
+
+
+This works in both PowerShell and CMD, as long as you handle escaping correctly.
 
 ---
 
