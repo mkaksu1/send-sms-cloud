@@ -211,6 +211,3 @@ This works in both PowerShell and CMD, as long as you handle escaping correctly.
 ## 🔹 License
 
 MIT © 2025
-
-
-
