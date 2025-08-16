@@ -7,6 +7,40 @@ export default function Home() {
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [error, setError] = useState('');
+  const [lang, setLang] = useState<'tr' | 'en'>('tr');
+
+  const t = {
+    tr: {
+      title: 'SMS Gönder',
+      phone: 'Telefon Numarası',
+      phonePlaceholder: '+905xxxxxxxxx',
+      phoneTitle: 'Geçerli bir Türk cep numarası girin.',
+      message: 'Mesaj',
+      messagePlaceholder: 'Mesajınızı yazın (Türkçe karakterler desteklenir)',
+      charcount: 'karakter',
+      send: 'Gönder',
+      sending: 'Gönderiliyor...',
+      success: 'SMS başarıyla gönderildi!',
+      error: 'Hata',
+      unknown: 'Bilinmeyen hata',
+      network: 'Ağ hatası',
+    },
+    en: {
+      title: 'Send SMS',
+      phone: 'Phone Number',
+      phonePlaceholder: '+y xxxxxxxxx (your country code)',
+      phoneTitle: 'Enter a valid mobile number.',
+      message: 'Message',
+      messagePlaceholder: 'Type your message (UTF-8 supported)',
+      charcount: 'characters',
+      send: 'Send',
+      sending: 'Sending...',
+      success: 'SMS sent successfully!',
+      error: 'Error',
+      unknown: 'Unknown error',
+      network: 'Network error',
+    }
+  };
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,39 +57,38 @@ export default function Home() {
         setStatus('success');
       } else {
         setStatus('error');
-        setError(data.error || 'Bilinmeyen hata');
+        setError(data.error || t[lang].unknown);
       }
     } catch (err: any) {
       setStatus('error');
-      setError(err.message || 'Ağ hatası');
+      setError(err.message || t[lang].network);
     }
   };
 
   return (
     <main className="sms-main">
-      {/* Inter font import */}
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       <div className="sms-card">
-        <h1 className="sms-title">SMS Gönder</h1>
+        <h1 className="sms-title">{t[lang].title}</h1>
         <form onSubmit={handleSend} className="sms-form">
           <label className="sms-label">
-            Telefon Numarası
+            {t[lang].phone}
             <input
               type="text"
-              placeholder="+905xxxxxxxxx"
+              placeholder={t[lang].phonePlaceholder}
               value={to}
               onChange={e => setTo(e.target.value.replace(/[^\d+]/g, '').replace(/^(?!\+)/, '+').slice(0, 14))}
               required
               className={`sms-input ${to && !/^\+905\d{9}$/.test(to) ? 'sms-input-error' : to ? 'sms-input-success' : ''}`}
               pattern="^\+905\d{9}$"
-              title="Geçerli bir Türk cep numarası girin."
+              title={t[lang].phoneTitle}
               autoComplete="tel"
             />
           </label>
           <label className="sms-label">
-            Mesaj
+            {t[lang].message}
             <textarea
-              placeholder="Mesajınızı yazın (Türkçe karakterler desteklenir)"
+              placeholder={t[lang].messagePlaceholder}
               value={message}
               onChange={e => setMessage(e.target.value.slice(0, 320))}
               required
@@ -63,23 +96,29 @@ export default function Home() {
               className="sms-textarea"
               maxLength={320}
             />
-            <div className="sms-charcount">{message.length}/320 karakter</div>
+            <div className="sms-charcount">{message.length}/320 {t[lang].charcount}</div>
           </label>
           <button
             type="submit"
             disabled={status === 'sending' || !to || !/^\+905\d{9}$/.test(to) || !message}
             className="sms-btn"
           >
-            {status === 'sending' ? 'Gönderiliyor...' : 'Gönder'}
+            {status === 'sending' ? t[lang].sending : t[lang].send}
           </button>
         </form>
         <div className="sms-alerts">
           {status === 'success' && (
-            <div className="sms-alert sms-success">SMS başarıyla gönderildi!</div>
+            <div className="sms-alert sms-success">{t[lang].success}</div>
           )}
           {status === 'error' && (
-            <div className="sms-alert sms-error">Hata: {error}</div>
+            <div className="sms-alert sms-error">{t[lang].error}: {error}</div>
           )}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
+          <select value={lang} onChange={e => setLang(e.target.value as 'tr' | 'en')} style={{ fontFamily: 'Inter', fontWeight: 500, fontSize: 15, borderRadius: 8, border: '1px solid #2563eb', padding: '4px 10px', background: '#f1f5f9', color: '#2563eb', outline: 'none', cursor: 'pointer' }}>
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+          </select>
         </div>
       </div>
       <style>{`
