@@ -26,7 +26,7 @@ SMS Sending Function (`/lib/sendSms.ts`)
 Cloudflared Tunnel ([https://xxxx.trycloudflare.com](https://xxxx.trycloudflare.com))  
 │  
 ▼  
-Traccar SMS Gateway (Android Phone)  
+Traccar SMS Gateway (Android Phone) ([https://play.google.com/store/apps/details?id=org.traccar.gateway](Google Play App))  
 │  
 ▼  
 SMS Sent to Recipient
